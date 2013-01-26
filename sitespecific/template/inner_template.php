@@ -36,7 +36,7 @@
  <div id="footer-wrap">
    <div id="footer">
      <p>
-      &copy; 2012 Walker Software Consulting
+      &copy; <?= date('Y') ?> Walker Software Consulting
             &nbsp;&nbsp;&nbsp;&nbsp;
       <a href="http://www.bluewebtemplates.com/" title="Website Templates" target="_blank">website templates</a> by <a href="http://www.styleshout.com/" title="styleshout templates" target="_blank">styleshout</a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
