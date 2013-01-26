@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<project name="WalkerCMS.master" default="">
+  <property name="msbuild.path" value="C:\Windows\Microsoft.NET\Framework\v4.0.30319" />
+  <property name="base.path" overwrite="false" value="" />
+  <property name="staging.path" overwrite="false" value="" />
+  <property name="system.test.output.path" overwrite="false" value="" />
+  <property name="verbose.output" overwrite="false" value="false" />
+  
+  <echo>**************************</echo>
+  <echo>Staging Path: '${staging.path}'</echo>
+  <echo>Base Path: '${base.path}'</echo>
+  <echo>System Test Output Path: '${system.test.output.path}'</echo>
+  <echo>Verbose: '${verbose.output}'</echo>
+  <echo>**************************</echo>
+  
+  <target name="cleanStagingArea" description="Delete all previously staged folders.">
+    <!-- Ensure all files and folders in staging path are writable -->
+    <attrib readonly="false" if="${directory::exists(staging.path)}" verbose="${verbose.output}">
+      <fileset basedir="${staging.path}">
+        <include name="**\*" />
+      </fileset>
+    </attrib>
+
+    <!-- Remove everything from the staging path -->
+    <delete if="${directory::exists(staging.path)}" verbose="${verbose.output}">
+      <fileset basedir="${staging.path}">
+        <include name="**\*" />
+      </fileset>
+    </delete>
+
+    <mkdir dir="${staging.path}" unless="${directory::exists(staging.path)}" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\cache" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\database" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\logs" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\sessions" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\views" verbose="${verbose.output}" />
+    <mkdir dir="${staging.path}\storage\work" verbose="${verbose.output}" />
+  </target>
+  
+  <target name="stage" description="Stage WCMS site for testing." depends="cleanStagingArea">
+    <copy todir="${staging.path}" includeemptydirs="false" overwrite="true" verbose="${verbose.output}">  
+      <fileset basedir="${base.path}">
+        <include name="**\public\**\*" />
+        <include name="**\sitespecific\**\*" />
+        <include name="**\storage\**\*" />
+        <exclude name="**\*.deploy" />
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="cleanUITests" description="Delete previously compiled UI test assembly">
+    <!-- Ensure all files and folders in output path are writable -->
+    <attrib readonly="false" if="${directory::exists(system.test.output.path)}" verbose="${verbose.output}">
+      <fileset basedir="${system.test.output.path}">
+        <include name="**\WCMS.SystemTests.dll" />
+      </fileset>
+    </attrib>
+    
+    <!-- Delete all files and folders from test output path -->
+    <delete if="${directory::exists(system.test.output.path)}" verbose="${verbose.output}">
+      <fileset basedir="${system.test.output.path}">
+        <include name="**\WCMS.SystemTests.dll" />
+      </fileset>
+    </delete>
+  </target>
+  
+  <target name="compileUITests" description="Compile site tests in debug mode" depends="cleanUITests">
+		<echo>Compiling UI Tests</echo>
+      <exec program="msbuild.exe"
+            basedir="${msbuild.path}"
+            workingdir="WCMS.SystemTests\"
+            verbose="${verbose.output}">
+      <arg value="WCMS.SystemTests.csproj" />
+      <arg value="/p:Configuration=Debug" />
+      <arg value="/p:OutputPath=${system.test.output.path}" />
+      <arg value="/v:quiet" />
+      <arg value="/nologo" />
+    </exec>
+	</target>
+  
+  <target name="runUITests" description="Run UI tests for site" depends="stage, compileUITests">
+    <foreach item="String" in="firefox,iexplore" delim="," property="browser.type">
+      <echo>Testing '${browser.type}'</echo>
+      <xmlpoke file="${system.test.output.path}\testsettings.config"
+               xpath="/appSettings/add[@key = 'TestWebBrowser']/@value"
+               value="${browser.type}" />
+      <exec program="nunit-console.exe" failonerror="false" resultproperty="testresult.WCMS.SystemTests.${browser.type}">
+        <arg value="${system.test.output.path}\WCMS.SystemTests.dll" />
+        <arg value="/xml=${system.test.output.path}\WCMS.SystemTests.${browser.type}-Results.xml" />
+        <arg value="/framework=net-4.0" />
+        <arg value="/nologo" />
+        <arg value="/nodots" />
+      </exec>
+    </foreach>
+
+    <!-- Report Failures -->
+    <foreach item="String" in="firefox,iexplore" delim="," property="browser.type">
+        <property name="TestResultProperty" value="testresult.WCMS.SystemTests.${browser.type}" />
+        <property name="TestResult" value="${property::get-value(TestResultProperty)}" />
+        <fail message="Test failures reported for '${browser.type}' browser." unless="${int::parse(TestResult)==0}" />
+    </foreach>
+  </target>
+
+  <target name="default" depends="cleanStagingArea, stage, cleanUITests, compileUITests, runUITests" />
+</project>
