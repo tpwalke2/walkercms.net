@@ -14,8 +14,8 @@
 
   $pages['home']          = array('menu_title' => 'Home');
   $pages['about']         = array('page_title' => 'About');
-  $pages['docs']          = array('page_title' => 'Docs', 'sub_nav_on_page' => true);
-  $pages['overview']      = array('menu_title' => 'Overview', 'page_title' => 'WalkerCMS Documentation', 'parent' => 'docs');
+  $pages['docs']          = array('menu_title' => 'Docs', 'page_title' => 'Documentation', 'sub_nav_on_page' => true);
+  $pages['docsoverview']  = array('menu_title' => 'Overview', 'page_title' => 'Documentation', 'parent' => 'docs');
   $pages['changelog']     = array('page_title' => 'Change Log', 'parent' => 'docs');
   $pages['install']       = array('page_title' => 'Installation', 'parent' => 'docs');
   $pages['templates']     = array('page_title' => 'Templates', 'parent' => 'docs');
@@ -24,6 +24,7 @@
   $pages['extrafeatures'] = array('page_title' => 'Extra Features', 'parent' => 'docs');
   $pages['testing']       = array('page_title' => 'UI Testing', 'parent' => 'docs');
   $pages['community']     = array('page_title' => 'Community', 'sub_nav_on_page' => true);
+  $pages['commoverview']  = array('menu_title' => 'Overview', 'page_title' => 'Community', 'parent' => 'community');
   $pages['contributing']  = array('page_title' => 'Contributing', 'parent' => 'community');
   $pages['styleguide']    = array('page_title' => 'Code Style', 'parent' => 'community');
   $pages['download']      = array('page_title' => 'Download', 'override_url' => 'https://github.com/tpwalke2/walkercms/zipball/master');
