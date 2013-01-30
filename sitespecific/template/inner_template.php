@@ -1,22 +1,25 @@
 <a name="top"></a>
 <div id="wrap">
  <div id="header">
-  <div id="header-links">
+  <a href="https://github.com/tpwalke2/WalkerCMS" class="github-link" title="Fork me on GitHub"><img src="../images/github_forkme.png" alt="Fork me on GitHub"></a>
+  <h1 id="logo-text"><a href="home" title=""><?= $organization_name ?></a></h1>
+  <h2 id="slogan"><?= $organization_slogan ?></h2>
+  
+  <?php if (isset($allow_search) && $allow_search): ?>
+  <form id="quick-search" action="index.html" method="get" >
    <p>
-    <a href="home">Home</a>
+     <label for="qsearch">Search:</label>
+     <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+     <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.gif" />
    </p>
-  </div>
- </div>
- <div id="header-photo">
-   <h1 id="logo-text"><a href="home" title=""><?= $organization_name ?></a></h1>
-   <h2 id="slogan"><?= $organization_slogan ?></h2>
-   <a href="https://github.com/tpwalke2/WalkerCMS" class="github-link" title="Fork me on GitHub"><img src="images/github_forkme.png" alt="Fork me on GitHub"></a>
+  </form>
+  <?php endif; ?>
  </div>
  <?php if ($has_page_specific_header): ?>
   <?= $page_specific_header ?>
  <?php endif; ?>
  <?= $nav ?>
- <div id="content-wrap" class="content-<?= $content_page_id ?><?= ($has_sub_nav && $has_secondary_content ? ' three-col' : ($has_secondary_content || $has_sub_nav ? ' two-col' : ' one-col')) ?>">
+ <div id="content-wrap" class="content-<?= $content_page_id ?><?= ($has_secondary_content || $has_sub_nav ? ' two-col' : ' one-col') ?>">
   <?php if ($has_sub_nav): ?>
   <div id="sidebar">
     <?= $sub_nav ?>
@@ -33,8 +36,8 @@
     <?= $page_content ?>
   </div>
  </div>
- <div id="footer-wrap">
-   <div id="footer">
+ <div id="footer-wrap"><div id="footer-content">
+   <div id="footer-bottom">
      <p>
       &copy; <?= date('Y') ?> Walker Software Consulting
             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -48,5 +51,5 @@
       <?= $page_specific_footer ?>
      <?php endif; ?>
    </div>
- </div>
+ </div></div>
 </div>

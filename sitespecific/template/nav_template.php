@@ -1,5 +1,5 @@
 <div id="<?= $nav_id ?>">
- <ul class="<?= ($is_primary_nav ? 'linearList' : 'sidemenu') ?>">
+ <ul<?= ($is_primary_nav ? '' : ' class="sidemenu"') ?>>
    <?= $nav_items ?>
  </ul>
 </div>

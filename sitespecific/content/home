@@ -1,12 +1,15 @@
-<p>WalkerCMS is a file-driven content-management system (CMS). No database required.</p>
-<h2>No DB?</h2>
-<p>That's right. No database required.</p>
-<p>WalkerCMS is great for small websites that have a few pages of content and where the content
-updates are few and far between. The primary motivation has been to provide local small businesses
-with a simple web presence.</p>
-<h2>Why a CMS then?</h2>
-<p>Call me ambitiously lazy. Or, for a more positive spin, I
-<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself" title="DRY principle">don't like 
-to repeat</a> myself. I saw that I was writing the same boilerplate code around content that only
-changed based on the link that was clicked. I realized that if the business owners wanted a change
-to the look and feel, I would have to make the change on every page.</p>
+<p>WalkerCMS is an open-source, file-driven <acronym title="content-management system">CMS</acronym>.
+No database required.</p>
+<h3>No DB?</h3>
+<p>That's right, no database required.</p>
+<h3>Why no DB?</h3>
+<p>WalkerCMS is great for smaller websites that have just a few pages of content; especially where
+the content updates are few and far between. For these minimal requirements, a database would add
+unnecessary complexity. No database also simplifies the process for replicating the production
+environment in the test environment.</p>
+<h3>How do I get started?</h3>
+<ol>
+  <li><a href="https://github.com/tpwalke2/walkercms/zipball/master" title="WalkerCMS source">Download</a> WalkerCMS</li>
+  <li><a href="https://github.com/tpwalke2/walkercms.net/zipball/master" title="WalkerCMS.net source">Download</a> this website (for a real-life example)</li>
+  <li>Read through the <a href="docs" title="WalkerCMS documentation">documentation</a></li>
+</ol>
