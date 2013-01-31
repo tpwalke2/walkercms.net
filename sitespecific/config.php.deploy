@@ -9,8 +9,8 @@
   $walkercms_config['contact_email'] = 'tpwalke2@gmail.com';
   $walkercms_config['contact_name']  = 'Tom Walker';
 
-  $pageDefaults['perform_caching'] = true;
-  $pageDefaults['show_in_nav'] = true;
+  $page_defaults['perform_caching'] = true;
+  $page_defaults['show_in_nav'] = true;
 
   $pages['home']          = array('menu_title' => 'Home');
   $pages['about']         = array('page_title' => 'About');
