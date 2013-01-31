@@ -13,7 +13,8 @@
 <h3><a name="primary-template"></a>Primary Template</h3>
 <h4>Purpose</h4>
 <p>The primary template defines the overall structure for a page.
-   WalkerCMS places the output from this template directly into the &lt;body&gt; tag.</p>
+   WalkerCMS places the output from this template directly into the
+   <span class="markup-tag">&lt;body&gt;</span> tag.</p>
 <h4>Usage</h4>
 <p>The primary template has a filename of &quot;inner_template.php&quot; and is required to be present
    for a website using WalkerCMS.</p>
@@ -95,7 +96,8 @@
       <td class="variable-name">has_page_specific_html_header</td>
       <td class="data-type">boolean</td>
       <td class="variable-desc">
-        <p>Indicates whether the requested page has a custom inclusion for the &lt;head&gt; section.</p>
+        <p>Indicates whether the requested page has a custom inclusion for the
+        <span class="markup-tag">&lt;head&gt;</span> section.</p>
         <p>See also:</p>
         <ul>
           <li><a href="content" title="Creating Content">Creating Content</a></li>
@@ -164,7 +166,16 @@
     <tr>
       <td class="variable-name">nav</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the primary navigation. The primary navigation is made up of all pages that have no
+           parents that are configured to be shown in the navigation. WalkerCMS fills this variable with
+           the output from the navigation template.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+          <li><a href="#nav-template" title="Navigation Template">Navigation Template</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">organization_full_title</td>
@@ -206,7 +217,13 @@
     <tr>
       <td class="variable-name">page_content</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the content for the requested page.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">page_id</td>
@@ -223,17 +240,37 @@
     <tr>
       <td class="variable-name">page_specific_footer</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the page specific footer content if it is available for the requested page ID.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">page_specific_header</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the page specific header content if it is available for the requested page ID.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">page_specific_html_header</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the page specific content to include in the
+           <span class="markup-tag">&lt;head&gt;</span> section if it is available for the requested
+           page ID.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">page_title</td>
@@ -249,7 +286,13 @@
     <tr>
       <td class="variable-name">secondary_content</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains the secondary content if available for the requested page ID.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">show_ie_warning</td>
@@ -280,8 +323,9 @@
       <td class="variable-name">site_description</td>
       <td class="data-type">string</td>
       <td class="variable-desc">
-        <p>Contains the description of the website. Generally used in the &lt;head&gt; section
-           for the meta description. This value comes directly from the site configuration.</p>
+        <p>Contains the description of the website. Generally used in the
+           <span class="markup-tag">&lt;head&gt;</span> section for the meta description. This value
+           comes directly from the site configuration.</p>
         <p>See also:</p>
         <ul>
           <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
@@ -292,8 +336,9 @@
       <td class="variable-name">site_keywords</td>
       <td class="data-type">string</td>
       <td class="variable-desc">
-        <p>Contains the keywords for the website. Generally used in the &lt;head&gt; section
-           for the meta keywords. This value comes directly from the site configuration.</p>
+        <p>Contains the keywords for the website. Generally used in the
+           <span class="markup-tag">&lt;head&gt;</span> section for the meta keywords. This value
+           comes directly from the site configuration.</p>
         <p>See also:</p>
         <ul>
           <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
@@ -303,7 +348,21 @@
     <tr>
       <td class="variable-name">sub_nav</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+      <p>Contains the sub-navigation for the requested page. A page will have sub-navigation if it is a
+         parent page to other pages and is configured to show the navigation on the page. A page may
+         also have sub-navigation if if is a child of a parent page that is configured to show the
+         navigation on the page. Additionally, a page may be configured to have custom sub-navigation
+         content.</p>
+      <p>WalkerCMS fills this variable with the output from the navigation template or with the content
+         of the configured custom sub-navigation..</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="#nav-template" title="Navigation Template">Navigation Template</a></li>
+          <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -337,17 +396,23 @@
     <tr>
       <td class="variable-name">is_primary_nav</td>
       <td class="data-type">boolean</td>
-      <td class="variable-desc"></td>
-    </tr>
-    <tr>
-      <td class="variable-name">nav_id</td>
-      <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Indicates whether WalkerCMS is current generating the primary navigation or
+           sub-navigation.</p>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">nav_items</td>
       <td class="data-type">string</td>
-      <td class="variable-desc"></td>
+      <td class="variable-desc">
+        <p>Contains a list of <span class="markup-tag">&lt;li&gt;</span> elements that WalkerCMS has
+           generated from the configuration given whether it is the primary navigation or
+           sub-navigation./p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="variable-name">organization_name</td>
