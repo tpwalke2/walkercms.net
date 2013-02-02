@@ -6,6 +6,8 @@
   $walkercms_config['description'] = 'WalkerCMS is a file-based content-management system (CMS) that is suited primarily for small websites.';
   $walkercms_config['keywords'] = 'content management system walkercms cms php laravel';
   $walkercms_config['contact_page']  = '';
+  $walkercms_config['admin_email'] = 'tpwalke2@gmail.com';
+  $walkercms_config['admin_name']  = 'Tom Walker';
   $walkercms_config['contact_email'] = 'tpwalke2@gmail.com';
   $walkercms_config['contact_name']  = 'Tom Walker';
 
