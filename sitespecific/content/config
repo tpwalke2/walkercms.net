@@ -96,6 +96,24 @@
       </td>
     </tr>
     <tr>
+      <td class="setting-name">log_level</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>Indicates the level of logging that gets committed to the log file. WalkerCMS has logging
+           statements at most every point in the request/response cycle. Most of these statements are
+           at the <span class="code">debug</span> level and are not that useful in a production
+           environment unless you are tracking down a problem. This setting gives you control over how
+           much information goes into the log file. The possible values are as follows:</p>
+        <dl>
+          <dt>debug</dt>
+            <dd>All statements at the debug and error levels are written.</dd>
+          <dt>error</dt>
+            <dd>All error statements.</dd>
+        </dl>
+        <p>The default is <span class="code">error</span>.</p>
+      </td>
+    </tr>
+    <tr>
       <td class="setting-name">maximum_unsupported_ie_version</td>
       <td class="data-type">string</td>
       <td class="setting-desc">
