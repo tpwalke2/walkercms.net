@@ -2,22 +2,254 @@
 <ul>
   <li><a href="#overview" title="Configuration Overview">Overview</a></li>
   <li><a href="#site-config" title="Site Configuration">Site</a></li>
-  <li><a href="$page-defaults" title="Page Defaults Configuration">Page Defaults</a></li>
   <li><a href="#pages" title="Page Configuration">Pages</a></li>
+  <li><a href="$page-defaults" title="Page Defaults Configuration">Page Defaults</a></li>
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
-<p></p>
+<p>The configuration file for your site resides in the site-specific directory (see
+   <a href="install#installation" title="Installation Directories">Installation</a>) and is named
+   <span class="filename">config.php</span>. Each of the following sections refer to sections in the configuration file.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="site-config"></a>Site</h3>
-<p></p>
-<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
-
-<h3><a name="page-defaults"></a>Page Defaults</h3>
-<p></p>
+<p>The site-level configuration options are set on the
+   <span class="variable-name">$walkercms_config</span> array. When WalkerCMS loads your configuration
+   file, this variable has already been initialized with the defaults specified.</p>
+<p>Unless otherwise noted in the description, string values default to empty (&quot;&quot;).
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="setting-name">admin_email</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The e-mail address of your site administrator.</p>
+        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">admin_name</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The name of your site administrator. The name is primarily used when the contact form sends
+           e-mails from users. When WalkerCMS generates an e-mail, it will use the
+           <span class="setting-name">admin_email</span> and
+           <span class="setting-name">admin_name</span> to format the <span class="code">From:</span>
+           field.</p>
+        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">contact_email</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The e-mail address to which WalkerCMS sends contact form entries.</p>
+        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">contact_name</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The name of the person to whom WalkerCMS sends contact form entries. When WalkerCMS
+           generates an e-mail, it will use the <span class="setting-name">contact_email</span> and
+           <span class="setting-name">contact_name</span> to format the <span class="code">To:</span>
+           and <span class="code">Reply-To:</span> fields.</p>
+        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">contact_page</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The page ID for which WalkerCMS will generate the contact form. While WalkerCMS will generate a contact form
+           to place on this page, you must specify the location when creating the page content.</p>
+        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">maximum_unsupported_ie_version</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>The maximum version of Internet Explorer that you do not support. This setting works in
+           conjunction with the <span class="setting-name">show_ie_warning</span> below.</p>
+        <p>The default value is &quot;7&quot; indicating that IE7 and below is not supported.</p>
+        <p>This otherwise optional field is required to be configured if the
+           <span class="setting-name">show_ie_warning</span> is set to true.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#ie-warning" title="Internet Explorer Warning">IE Warning</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">organization_full_title</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>Generally, the full legal name of the organization for which you are creating a website. May
+           also be configured to be the same as <span class="setting-name">organization_name</span>.</p>
+        <p>The default is &quot;WalkerCMS&quot;.</p>
+        <p>You must re-configure this field if you do not wish the default to appear in portions of
+           the navigational menus.</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">organization_name</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>Generally, a less formal name of the organization for which you are creating a website. May
+           also be configured to be the same as
+           <span class="setting-name">organization_full_title</span>.</p>
+        <p>The default is &quot;WalkerCMS&quot;.</p>
+        <p>You must re-configure this field if you do not wish the default to appear in portions of
+           the navigational menus.</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">page_cache_expiration</td>
+      <td class="data-type">integer</td>
+      <td class="setting-desc">
+        <p>The amount of time in seconds that a cached page should stay in the cache until WalkerCMS
+           refreshes it. This setting works in conjunction with the
+           <span class="setting-name">perform_caching</span> setting for each page.</p>
+        <p>The default is &quot;10080&quot;, or 1 week.</p>
+        <p>If no pages are configured to be cached, this value is ignored.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="#pages" title="Page Configuration">Pages</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">show_ie_warning</td>
+      <td class="data-type">boolean</td>
+      <td class="setting-desc">
+        <p>Flag indicating whether to show a warning to Internet Explorer users. This setting works in
+           conjunction with the <span class="setting-name">maximum_unsupported_ie_version</span> to
+           determine whether the warning actually gets displayed.</p>
+        <p>The default is &quot;true&quot;.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#ie-warning" title="Internet Explorer Warning">IE Warning</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">site</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>Generally a <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug"
+           title="slug definition">slug</a> representing the domain name of the site without the tld
+           suffix.</p>
+        <p>The default is &quot;walkercms&quot; for
+           <a href="http://www.walkercms.net" title="WalkerCMS home">walkercms.net</a>.</p>
+        <p>This setting should be set in your configuration.</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="setting-name">version</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc">
+        <p>Contains the version of WalkerCMS against which this website is coded. The default value is
+           set to the latest installed version of WalkerCMS which is currently
+           &quot;<?= $site_version ?>&quot;</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="pages"></a>Pages</h3>
 <p></p>
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="setting-name">external_url</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">menu_title</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">override_url</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">page_title</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">parent</td>
+      <td class="data-type">string</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">perform_caching</td>
+      <td class="data-type">boolean</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">show_in_nav</td>
+      <td class="data-type">boolean</td>
+      <td class="setting-desc"></td>
+    </tr>
+    <tr>
+      <td class="setting-name">sub_nav_on_page</td>
+      <td class="data-type">boolean</td>
+      <td class="setting-desc"></td>
+    </tr>
+  </tbody>
+</table>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="page-defaults"></a>Page Defaults</h3>
+<p>Each of the settings for pages are initialized to default values if you do not provide a value in
+   your configuration. These default values can be configured by setting the value in the
+   <span class="variable-name">$page_defaults</span> array. The keys for the pages and page defaults
+   arrays are the same.</p>
+<p>The default page defaults are as follows:</p>
+<ul>
+  <li><span class="data-type">string</span> values are initialized to empty (&quot;&quot;)</li>
+  <li><span class="data-type">boolean</span> values are initialized to <span class="code">false</span></li>
+</ul>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>

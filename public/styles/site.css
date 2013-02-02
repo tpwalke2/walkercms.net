@@ -541,6 +541,6 @@ a.github-link img
   z-index: 100;
 }
 
-.page-id, .variable-name, .setting-name, .data-type, .markup-tag {
+.page-id, .variable-name, .setting-name, .data-type, .markup-tag, .filename, .code {
   font-family: "Courier New", Courier, monospace;
 }
