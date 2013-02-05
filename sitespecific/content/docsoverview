@@ -7,23 +7,24 @@
 </ul>
 
 <h3><a name="welcome"></a>Welcome</h3>
-<p>Welcome to the WalkerCMS documentation. If this is your first time using WalkerCMS, we recommend
-following the links in the sidebar to the left in order.</p>
+<p>Welcome to the WalkerCMS documentation. If this is your first time using WalkerCMS, we
+   recommend following the links in the sidebar to the left in order.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="audience"></a>Audience</h3>
-<p>WalkerCMS is aimed primarily at the small business that needs a simple web presence that serves
-up essential, but basic information that rarely changes. Currently, WalkerCMS is built for a
-web programmer assisting these small businesses rather than an employee or owner. The idea is to
-provide a fairly simple templating engine for content that has little to no dynamic features.</p>
+<p>WalkerCMS is aimed primarily at the small business that needs a simple web presence that serves up
+   essential, but basic information that rarely changes. Currently, WalkerCMS is built for a web
+   programmer assisting these small businesses rather than an employee or owner. The idea is to provide
+   a fairly simple templating engine for content that has little to no dynamic features.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="concepts"></a>Key Concepts</h3>
-<p>WalkerCMS is organized such that the website can be either a sibling directory or merged in with
-the application core. A website that uses WalkerCMS must configure three separate directories each
-with the following functions: public-facing, site configuration, and artifact storage.</p>
-<p>A URL for a WalkerCMS-backed website will need to conform to the following (which is already set
-   up in the included .htaccess file).</p>
+<p>WalkerCMS is organized such that the website can be either a sibling directory or merged in with the
+   application core. This documentation assumes the sibling form of directory structure. A website that
+   uses WalkerCMS must configure three separate directories each with the following functions:
+   public-facing , site configuration, and artifact storage.</p>
+<p>A URL for a WalkerCMS-backed website will need to conform to the following format (which is already
+   configured in the included .htaccess file).</p>
 <code>http://your.domain.name/page_id</code>
 <p>WalkerCMS uses the <span class="page-id">page_id</span> parameter to determine how and what to
    display to the user. Understandably then, the <span class="page-id">page_id</span> is important

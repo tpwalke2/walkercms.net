@@ -1,12 +1,12 @@
 <p>WalkerCMS is an open-source, file-driven <acronym title="content-management system">CMS</acronym>.
-No database required.</p>
+   No database required.</p>
 <h3>No DB?</h3>
 <p>That's right, no database required.</p>
 <h3>Why no DB?</h3>
-<p>WalkerCMS is great for smaller websites that have just a few pages of content; especially where
-the content updates are few and far between. For these minimal requirements, a database would add
-unnecessary complexity. No database also simplifies the process for replicating the production
-environment in the test environment.</p>
+<p>WalkerCMS is great for smaller websites that have just a few pages of content; especially where the
+   content updates are few and far between. For these minimal requirements, a database would add
+   unnecessary complexity. No database also simplifies the process for replicating the production
+   environment in the test environment.</p>
 <h3>How do I get started?</h3>
 <ol>
   <li><a href="https://github.com/tpwalke2/walkercms/zipball/master" title="WalkerCMS source">Download</a> WalkerCMS</li>
