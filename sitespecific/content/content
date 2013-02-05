@@ -1,13 +1,43 @@
 <h2>Creating Content</h2>
 <ul>
-  <li><a href="#overview" title="Content Creation Overview">Overview</a></li>
-  <li><a href="" title=""></a></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#primary-content">Primary Content</a></li>
+  <li><a href="#secondary-content">Secondary Content</a></li>
+  <li><a href="#primary-nav">Custom Primary Navigation</a></li>
+  <li><a href="#sub-nav">Custom Sub-Navigation</a></li>
+  <li><a href="#html-headers">Custom HTML Headers</a></li>
+  <li><a href="#page-headers">Custom Page Header</a></li>
+  <li><a href="#page-footers">Custom Footers</a></li>
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
 <p></p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name=""></a></h3>
+<h3><a name="primary-content"></a>Primary Content</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="secondary-content"></a>Secondary Content</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="primary-nav"></a>Custom Primary Navigation</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="sub-nav"></a>Custom Sub-Navigation</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="html-headers"></a>Custom HTML Headers</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="page-headers"></a>Custom Page Header</h3>
+<p></p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3><a name="page-footers"></a>Custom Footers</h3>
 <p></p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
