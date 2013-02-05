@@ -2,21 +2,33 @@
 <ul>
   <li><a href="#overview" title="Configuration Overview">Overview</a></li>
   <li><a href="#site-config" title="Site Configuration">Site</a></li>
-  <li><a href="#pages" title="Page Configuration">Pages</a></li>
+  <li>
+    <a href="#pages" title="Page Configuration">Pages</a>
+    <ul>
+      <li><a href="#page-id-validation">Page ID Validation</a></li>
+      <li><a href="#menu-item-generation">Menu Item Generation</a></li>
+      <li><a href="#primary-nav-filter">Primary Navigation Filter</a></li>
+      <li><a href="#sub-nav-filter">Page Sub-Navigation Filter</a></li>
+      <li><a href="#page-settings">Settings</a></li>
+    </ul>
+  </li>
   <li><a href="$page-defaults" title="Page Defaults Configuration">Page Defaults</a></li>
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
 <p>The configuration file for your site resides in the site-specific directory (see
-   <a href="install#installation" title="Installation Directories">Installation</a>) and is named
-   <span class="filename">config.php</span>. Each of the following sections refer to sections in the configuration file.</p>
+   <a href="install#installation" title="Installation Directories">Installation</a>) and is
+   named <span class="filename">config.php</span>. Each of the following sections refer to
+   sections in the configuration file.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="site-config"></a>Site</h3>
 <p>The site-level configuration options are set on the
-   <span class="variable-name">$walkercms_config</span> array. When WalkerCMS loads your configuration
-   file, this variable has already been initialized with the defaults specified.</p>
-<p>Unless otherwise noted in the description, string values default to empty (&quot;&quot;).
+   <span class="variable-name">$walkercms_config</span> array. When WalkerCMS loads your
+   configuration file, this variable has already been initialized with the defaults
+   specified.</p>
+<p>Unless otherwise noted in the description, string values default to empty
+   (&quot;&quot;).</p>
 <table>
   <thead>
     <tr>
@@ -31,7 +43,8 @@
       <td class="data-type">string</td>
       <td class="setting-desc">
         <p>The e-mail address of your site administrator.</p>
-        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>This otherwise optional field is required to be configured in order to use the
+           Contact Form feature.</p>
         <p>See also:</p>
         <ul>
           <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
@@ -42,12 +55,13 @@
       <td class="setting-name">admin_name</td>
       <td class="data-type">string</td>
       <td class="setting-desc">
-        <p>The name of your site administrator. The name is primarily used when the contact form sends
-           e-mails from users. When WalkerCMS generates an e-mail, it will use the
-           <span class="setting-name">admin_email</span> and
+        <p>The name of your site administrator. The name is primarily used when the contact
+           form sends e-mails from users. When WalkerCMS generates an e-mail, it will use
+           the <span class="setting-name">admin_email</span> and
            <span class="setting-name">admin_name</span> to format the <span class="code">From:</span>
            field.</p>
-        <p>This otherwise optional field is required to be configured in order to use the Contact Form feature.</p>
+        <p>This otherwise optional field is required to be configured in order to use the
+           Contact Form feature.</p>
         <p>See also:</p>
         <ul>
           <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
@@ -206,7 +220,80 @@
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="pages"></a>Pages</h3>
-<p></p>
+<p>The pages configuration is at the heart of WalkerCMS. The navigation menus are generated
+   based on the settings here. The validity of requested page IDs is determined by this
+   collection of settings.</p>
+<p>The configuration for the pages are set in the <span class="variable-name">$pages</span>
+   associative array. When WalkerCMS loads your configuration file, this variable has
+   already been initialized with three pages that we recommend for you to implement:
+   <span class="page-id">403</span>, <span class="page-id">404</span>, and
+   <span class="page-id">500</span>. Note that these pages correspond to common HTTP error
+   codes. Be sure that you do not redefine the <span class="variable-name">$pages</span>
+   variable.</p>
+<code>
+<pre>
+$pages = array('home' => array('menu_title' => 'Home')); // BAD!
+
+$pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
+</code>
+<p>The key/index for a single configuration in the <span class="variable-name">$pages</span>
+   serves as the page ID. The page ID may only contain lower- or upper-case non-accented
+   ASCII letters, number, '_' and '.' (/^[a-zA-Z0-9_\.]+$/).</p>
+<h4><a name="page-id-validation"></a>Page ID Validation</h4>
+<p>The page ID is initially given as part of the URL. Because it is user submitted data,
+   it is best to treat it with a certain level of suspicion. WalkerCMS validates a requested
+   page ID based on two criteria:</p>
+<dl>
+  <dt>Character Range</dt>
+    <dd>Currently, a page ID may only be lower- or upper-case non-accented ASCII letters,
+        numbers, '_', and '.'.</dd>
+  <dt>Page Configuration</dt>
+    <dd>There must be a page configuration in the <span class="code">$pages</span> array
+        for the page ID.</dd>
+</dl>
+<p>If either of the validation criteria fail, WalkerCMS will redirect the request to the
+   <span class="page-id">404</span> error code.</p>
+<h4><a name="menu-item-generation"></a>Menu Item Generation</h4>
+<p>WalkerCMS uses the settings in the <span class="code">$pages</span> array to generate
+   both the primary and per-page navigational menus. In both cases, the only difference
+   is in how WalkerCMS filters out the unnecessary pages. Each of those filters is
+   explained in more detail below.</p>
+<p>For each page that makes it past the filter, WalkerCMS generates a menu item. The menu
+   items are collected into the <span class="variable-name">$nav_items</span> array that
+   is passed to the <a href="templates#nav-template">navigation template</a>. Each menu
+   item is contained within a <span class="markup-tag">&lt;li&gt;</span> tag that may, or
+   may not, contain a link as well as various style attributes.</p>
+<p>A page is converted into a menu item using the following rules:</p>
+<ol>
+  <li>If a page has <a href="content">custom nav content</a> associated, the contents of
+      that file are included and no further processing occurs.</li>
+  <li>If the source page for the menu item is the currently requested page, the menu item
+      is marked with the <span class="code">currently-selected</span> class and no link is
+      generated.</li>
+  <li>If the source page for the menu item is a parent of the currently requested page, the
+      menu item is marked with the <span class="code">currently-selected</span> class and a
+      link is generated.</li>
+  <li>In all other cases, the menu item is marked with the
+      <span class="code">unselected</span> class and a link is generated.</li>
+</ol>
+<p>The link that WalkerCMS generates for a given menu item defaults to be the ID of the
+   associated page. This can be overriden by two of the variables described in the table
+   below: <span class="setting-name">external_url</span> and
+   <span class="setting-name">override_url</span>.</p>
+
+<h4><a name="primary-nav-filter"></a>Primary Navigation Filter</h4>
+<p>All pages that are not children of other pages (<span class="setting-name">parent</span>
+   is empty) and that have the <span class="setting-name">show_in_nav</span>
+   setting set to true will appear in the primary navigation.</p>
+
+<h4><a name="sub-nav-filter"></a>Page Sub-Navigation Filter</h4>
+<p>If the currently requested page is not a child page and has the
+   <span class="setting-name">sub_nav_on_page</span> setting set to true, then all of the
+   pages that are its children will appear in the sub-navigation. Additionally, if the
+   currently requested page is a child of a page that meets the foregoing criteria, then
+   all of its siblings will appear in the sub-navigation.</p>
+
+<h4><a name="page-settings"></a>Settings</h4>
 <table>
   <thead>
     <tr>
@@ -219,42 +306,96 @@
     <tr>
       <td class="setting-name">external_url</td>
       <td class="data-type">string</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Specifies a URL that is external to this site.</p>
+        <p>This setting is similar to the <span class="setting-name">override_url</span>
+           except that this setting will cause WalkerCMS to add the text
+           <span class="code">(external link)</span> to the navigation menu tooltip.</p>
+        <p>If this setting and <span class="setting-name">override_url</span> are both set,
+           this setting takes precedence.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">menu_title</td>
       <td class="data-type">string</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Generally specifies the text displayed in any navigation menu links to this
+           page. Additionally, this setting may specify the menu link tooltip. In both
+           cases, this setting works along with the
+           <span class="setting-name">page_title</span>.</p>
+        <p>If the <span class="setting-name">page_title</span> setting is not present, then
+           this setting determines the tooltip text. If this setting and the
+           <span class="setting-name">page_title</span> are both set, then this setting
+           determines the menu text and the <span class="setting-name">page_title</span>
+           determines the tooltip text.</p> 
+      </td>
     </tr>
     <tr>
       <td class="setting-name">override_url</td>
       <td class="data-type">string</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Specifies a URL that is generally internal to this site, but where you want
+           a different URL than the page ID.</p>
+        <p>This setting is similar to the <span class="setting-name">external_url</span>
+           except that this setting does not alter the tooltip text.</p>
+        <p>If this setting and <span class="setting-name">external_url</span> are both set,
+           the <span class="setting-name">external_url</span> value takes precedence.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">page_title</td>
       <td class="data-type">string</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Along with the <span class="setting-name">organization_name</span>, this setting
+           specifies the HTML title of the page.</p>
+         <p>Generally, this setting also specifies the text displayed in the navigation menu
+           tooltips. Additionally, this setting may specify the menu link text. In both
+           cases, this setting works along with the
+           <span class="setting-name">menu_title</span> setting.</p>
+        <p>If the <span class="setting-name">menu_title</span> setting is not present, then
+           this setting determines the link text. If this setting and the
+           <span class="setting-name">menu_title</span> are both set, then this setting
+           determines the tooltip text and the <span class="setting-name">menu_title</span>
+           determines the link text.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">parent</td>
       <td class="data-type">string</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>This setting may be used to specify a parent/child relationship between pages.
+           A parent/child relationship is useful in the case where you need sub-navigation
+           on a page, or where you want to group pages into sections.</p>
+        <p>This may be left empty, but if it is set, it must refer to a page that is
+           otherwise defined in the <span class="variable-name">$pages</span> array.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">perform_caching</td>
       <td class="data-type">boolean</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Indicates whether or not this page should be cached. If
+           <span class="code">true</span>, then once this page has been generated,
+           WalkerCMS will place it into the cache for the amount of time specified in the
+           site-level <span class="setting-name">page_cache_expiration</span> setting and
+           will not regenerate the page until the cache expires.</p>
+        <p>This setting is ignored if the page ID is the same as the one specified in the
+           site-level <span class="setting-name">contact_page</span>.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">show_in_nav</td>
       <td class="data-type">boolean</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Indicates whether to show this page in the primary navigation menu or not.</p>
+      </td>
     </tr>
     <tr>
       <td class="setting-name">sub_nav_on_page</td>
       <td class="data-type">boolean</td>
-      <td class="setting-desc"></td>
+      <td class="setting-desc">
+        <p>Indicates whether to show a sub-navigation menu on the page or not.</p>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -270,4 +411,16 @@
   <li><span class="data-type">string</span> values are initialized to empty (&quot;&quot;)</li>
   <li><span class="data-type">boolean</span> values are initialized to <span class="code">false</span></li>
 </ul>
+<h4>Example</h4>
+<code>
+  <pre>
+$page_defaults['show_in_nav'] = true;
+    
+$pages['home'] = array('page_title' => 'Home');</pre>
+</code>
+<p>This will set the default value for the <span class="setting-name">show_in_nav</span> to true.
+   Additionally, notice that the <span class="page-id">home</span> is not configured with the
+   <span class="setting-name">show_in_nav</span> setting. WalkerCMS merges the page defaults with
+   each page configuration, so the <span class="page-id">home</span> page will have a
+   <span class="setting-name">show_in_nav</span> value of <span class="code">true</span>.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
