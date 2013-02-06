@@ -11,7 +11,19 @@
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
-<p></p>
+<p>There are a number of times (extension points) during page generation that WalkerCMS
+   checks for and includes custom content. Each of those extension points corresponds to a
+   sub-directory within the site-specific directory (See
+   <a href="install#directory-structure">Directory Structure</a>). Creating content in
+   WalkerCMS is as simple as saving text files into these sub-directories.</p>
+<p>There are general characteristics that are shared by all of the directories. The files
+   must have the same name as the corresponding page ID with no extension (e.g. the page you
+   are reading has a page ID of <span class="page-id">content</span>, the file that contains
+   the content is in <span class="filename">sitespecific/content/content</span>). The files
+   may contain text, HTML, or even PHP. Each extension point offers different supporting
+   variables that you may use.</p>
+<p>Below, you will find more detail about each sub-directory including descriptions of the
+   variables available to files in each one.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="primary-content"></a>Primary Content</h3>

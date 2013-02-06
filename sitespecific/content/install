@@ -47,7 +47,7 @@
   <li><a href="https://github.com/tpwalke2/walkercms.net/zipball/master" title="WalkerCMS.net source">Download WalkerCMS.net</a> (this website).</li>
   <li>Extract the archive to a directory that is a sibling to the WalkerCMS directory.</li>
 </ol>
-<h4>Both</h4>
+<h4><a name="directory-structure"></a>Directory Structure</h4>
 <p>Ensure that the final directory structure for either of the above options is as follows:</p>
 <code><pre>
 /root/
