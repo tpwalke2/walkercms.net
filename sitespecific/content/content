@@ -10,7 +10,7 @@
   <li><a href="#page-footers">Custom Footers</a></li>
 </ul>
 
-<h3><a name="overview"></a>Overview</h3>
+<h3 id="overview">Overview</h3>
 <p>There are a number of times (extension points) during page generation that WalkerCMS
    checks for and includes custom content. Each of those extension points corresponds to a
    sub-directory within the site-specific directory (See
@@ -26,30 +26,94 @@
    variables available to files in each one.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="primary-content"></a>Primary Content</h3>
-<p></p>
+<h3 id="primary-content">Primary Content</h3>
+<p>Primary content files are placed in the <span class="filename">content</span>
+   sub-directory. These files contain the primary content for a requested page. For example,
+   this text that you are reading is contained in a file named
+   <span class="filename">content</span> in the content sub-directory.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">contact_form</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Placeholder for the contact form subsystem. This may be the form itself or the
+           results for an attempted contact form submission.</p>
+        <p>This variable is neither populated, nor set if this page does not correspond to
+           the <span class="setting-name">contact_page</span> configuration setting.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="extrafeatures#contact-form" title="Contact Form">Contact Form</a></li>
+          <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value &quot;<span class="code">content</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">site_version</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the version of WalkerCMS against which this site is configured.</p>
+        <p>Corresponds with the <span class="setting-name">version</span> site configuration
+           setting.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="secondary-content"></a>Secondary Content</h3>
-<p></p>
+<h3 id="secondary-content">Secondary Content</h3>
+<p>Secondary content files are placed in the <span class="filename">secondarycontent</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="primary-nav"></a>Custom Primary Navigation</h3>
-<p></p>
+<h3 id="primary-nav">Custom Primary Navigation</h3>
+<p>Custom primary navigation files are placed in the <span class="filename">nav</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="sub-nav"></a>Custom Sub-Navigation</h3>
-<p></p>
+<h3 id="sub-nav">Custom Sub-Navigation</h3>
+<p>Custom sub-navigation files are placed in the <span class="filename">subnav</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="html-headers"></a>Custom HTML Headers</h3>
-<p></p>
+<h3 id="html-headers">Custom HTML Headers</h3>
+<p>Custom HTML header files are placed in the <span class="filename">htmlheaders</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="page-headers"></a>Custom Page Header</h3>
-<p></p>
+<h3 id="page-headers">Custom Page Header</h3>
+<p>Custom page header files are placed in the <span class="filename">headers</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="page-footers"></a>Custom Footers</h3>
-<p></p>
+<h3 id="page-footers">Custom Footers</h3>
+<p>Custom footer files are placed in the <span class="filename">footers</span>
+   sub-directory.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>

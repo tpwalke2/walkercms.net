@@ -6,7 +6,9 @@
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
-<p></p>
+<p>WalkerCMS provides additional features outside of its primary purpose of page
+   generation. Other parts of the documentation may refer to these features, but the idea
+   here is to explain the purpose and usage of each one.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="contact-form"></a>Contact Form</h3>
