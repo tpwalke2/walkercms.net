@@ -5,12 +5,12 @@
   <li><a href="#nav-template" title="Navigation template">Navigation Template</a></li>
 </ul>
 
-<h3><a name="overview"></a>Overview</h3>
+<h3 id="overview">Overview</h3>
 <p>All templates reside in the /sitespecific/templates directory. The sections below provide more
    detail as to the purpose, usage, and data available in each type of template.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="primary-template"></a>Primary Template</h3>
+<h3 id="primary-template">Primary Template</h3>
 <h4>Purpose</h4>
 <p>The primary template defines the overall structure for a page.
    WalkerCMS places the output from this template directly into the
@@ -369,7 +369,7 @@
 </table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="nav-template"></a>Navigation Template</h3>
+<h3 id="nav-template">Navigation Template</h3>
 <h4>Purpose</h4>
 <p>The navigation template defines the overall structure for the navigation and sub-navigation.
    WalkerCMS uses the output from this template to fill both the <span class="variable-name">nav</span>

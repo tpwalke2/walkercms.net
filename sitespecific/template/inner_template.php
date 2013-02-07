@@ -1,4 +1,4 @@
-<a name="top"></a>
+<a id="top"></a>
 <div id="wrap">
  <div id="header">
   <a href="https://github.com/tpwalke2/WalkerCMS" class="github-link" title="Fork me on GitHub"><img src="../images/github_forkme.png" alt="Fork me on GitHub" /></a>
@@ -44,7 +44,7 @@
       <a href="http://www.bluewebtemplates.com/" title="Website Templates" target="_blank">website templates</a> by <a href="http://www.styleshout.com/" title="styleshout templates" target="_blank">styleshout</a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="home">Home</a> |
-            <a href="http://validator.w3.org/check?uri=referer" title="Valid XHML" target="_blank">XHTML</a> |
+            <a href="http://validator.w3.org/check?uri=referer" title="Valid HTML" target="_blank">HTML</a> |
       <a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS" target="_blank">CSS</a>
      </p>
      <?php if ($has_page_specific_footer): ?>

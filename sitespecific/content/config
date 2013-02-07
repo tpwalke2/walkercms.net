@@ -15,14 +15,14 @@
   <li><a href="$page-defaults" title="Page Defaults Configuration">Page Defaults</a></li>
 </ul>
 
-<h3><a name="overview"></a>Overview</h3>
+<h3 id="overview">Overview</h3>
 <p>The configuration file for your site resides in the site-specific directory (see
    <a href="install#installation" title="Installation Directories">Installation</a>) and is
    named <span class="filename">config.php</span>. Each of the following sections refer to
    sections in the configuration file.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="site-config"></a>Site</h3>
+<h3 id="site-config">Site</h3>
 <p>The site-level configuration options are set on the
    <span class="variable-name">$walkercms_config</span> array. When WalkerCMS loads your
    configuration file, this variable has already been initialized with the defaults
@@ -219,7 +219,7 @@
 </table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="pages"></a>Pages</h3>
+<h3 id="pages">Pages</h3>
 <p>The pages configuration is at the heart of WalkerCMS. The navigation menus are generated
    based on the settings here. The validity of requested page IDs is determined by this
    collection of settings.</p>
@@ -239,7 +239,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
 <p>The key/index for a single configuration in the <span class="variable-name">$pages</span>
    serves as the page ID. The page ID may only contain lower- or upper-case non-accented
    ASCII letters, number, '_' and '.' (/^[a-zA-Z0-9_\.]+$/).</p>
-<h4><a name="page-id-validation"></a>Page ID Validation</h4>
+<h4 id="page-id-validation">Page ID Validation</h4>
 <p>The page ID is initially given as part of the URL. Because it is user submitted data,
    it is best to treat it with a certain level of suspicion. WalkerCMS validates a requested
    page ID based on two criteria:</p>
@@ -253,7 +253,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
 </dl>
 <p>If either of the validation criteria fail, WalkerCMS will redirect the request to the
    <span class="page-id">404</span> error code.</p>
-<h4><a name="menu-item-generation"></a>Menu Item Generation</h4>
+<h4 id="menu-item-generation">Menu Item Generation</h4>
 <p>WalkerCMS uses the settings in the <span class="code">$pages</span> array to generate
    both the primary and per-page navigational menus. In both cases, the only difference
    is in how WalkerCMS filters out the unnecessary pages. Each of those filters is
@@ -281,7 +281,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
    below: <span class="setting-name">external_url</span> and
    <span class="setting-name">override_url</span>.</p>
 
-<h4><a name="primary-nav-filter"></a>Primary Navigation Filter</h4>
+<h4 id="primary-nav-filter">Primary Navigation Filter</h4>
 <p>All pages that are not children of other pages (<span class="setting-name">parent</span>
    is empty) and that have the <span class="setting-name">show_in_nav</span>
    setting set to true will appear in the primary navigation.</p>
@@ -293,7 +293,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
    currently requested page is a child of a page that meets the foregoing criteria, then
    all of its siblings will appear in the sub-navigation.</p>
 
-<h4><a name="page-settings"></a>Settings</h4>
+<h4 id="page-settings">Settings</h4>
 <table>
   <thead>
     <tr>
@@ -401,7 +401,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
 </table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="page-defaults"></a>Page Defaults</h3>
+<h3 id="page-defaults">Page Defaults</h3>
 <p>Each of the settings for pages are initialized to default values if you do not provide a value in
    your configuration. These default values can be configured by setting the value in the
    <span class="variable-name">$page_defaults</span> array. The keys for the pages and page defaults
