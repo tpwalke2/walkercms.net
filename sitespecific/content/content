@@ -3,7 +3,13 @@
   <li><a href="#overview">Overview</a></li>
   <li><a href="#primary-content">Primary Content</a></li>
   <li><a href="#secondary-content">Secondary Content</a></li>
-  <li><a href="#primary-nav">Custom Primary Navigation</a></li>
+  <li>
+    <a href="#primary-nav">Custom Primary Navigation</a>
+    <ul>
+      <li><a href="#primary-nav-example">Example</a></li>
+      <li><a href="#primary-nav-variables">Variables</a></li>
+    </ul>
+  </li>
   <li><a href="#sub-nav">Custom Sub-Navigation</a></li>
   <li><a href="#html-headers">Custom HTML Headers</a></li>
   <li><a href="#page-headers">Custom Page Header</a></li>
@@ -132,12 +138,56 @@
 
 <h3 id="primary-nav">Custom Primary Navigation</h3>
 <p>Custom primary navigation files are placed in the <span class="filename">nav</span>
-   sub-directory.</p>
+   sub-directory. Unlike the other custom content extension points, custom primary
+   navigation does not completely replace the primary navigation for a requested page.
+   Instead, as WalkerCMS is building the primary navigation, it determines if there is
+   a file available for the currently in process page. This allows you to place custom
+   content directly into the primary navigation menu for all pages.</p>
+<h4 id="primary-nav-example">Example</h4>
+<p>A potential use could be for placing a search box into the primary navigation. You would
+   need to configure a <span class="page-id">search</span> page that was shown in the main
+   navigation menu. Then you would add a <span class="filename">search</span> custom primary
+   navigation file that included the search form. WalkerCMS would then include the search
+   form on any primary navigation menu.</p>
+<h4 id="primary-nav-variables">Variables</h4>
+<p>As in the other custom content types, these files may include text, HTML, or valid PHP.
+   Additionally, below is a table of variables available for use in your file.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value &quot;<span class="code">nav</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the page ID that is currently being processed by WalkerCMS for
+           displaying in the primary navigation.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3 id="sub-nav">Custom Sub-Navigation</h3>
 <p>Custom sub-navigation files are placed in the <span class="filename">subnav</span>
-   sub-directory.</p>
+   sub-directory. The content in a custom sub-navigation file will completely replace the
+   default sub-navigation menu that WalkerCMS generates for a requested page. Whether
+   default or custom sub-navigation is used, WalkerCMS will populate the
+   <span class="variable-name">has_sub_nav</span> and
+   <span class="variable-name">sub_nav</span> appropriately in the
+   <a href="templates#primary-template">primary template</a>.</p>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>
@@ -169,7 +219,13 @@
 
 <h3 id="html-headers">Custom HTML Headers</h3>
 <p>Custom HTML header files are placed in the <span class="filename">htmlheaders</span>
-   sub-directory.</p>
+   sub-directory. These files are included in the HTML header section that WalkerCMS
+   automatically generates. The content is included after WalkerCMS generates the default
+   stylesheet and script references, but before the page specific stylesheets and script
+   references. If there is a page-specific HTML header, then WalkerCMS will set the values
+   of the <span class="variable-name">has_page_specific_html_header</span> and
+   <span class="variable-name">page_specific_html_header</span> variables appropriately in
+   the <a href="templates#primary-template">primary template</a>.</p>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>

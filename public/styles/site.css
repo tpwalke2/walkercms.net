@@ -68,6 +68,10 @@ ul, ol {
 }
 ul { list-style: none; }
 
+li ul {
+  margin: 3px 5px;
+}
+
 dl { padding: 10px; margin: 0; }
 
 dt {
