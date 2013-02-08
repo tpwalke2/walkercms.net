@@ -30,7 +30,10 @@
 <p>Primary content files are placed in the <span class="filename">content</span>
    sub-directory. These files contain the primary content for a requested page. For example,
    this text that you are reading is contained in a file named
-   <span class="filename">content</span> in the content sub-directory.</p>
+   <span class="filename">content</span> in the content sub-directory. WalkerCMS includes
+   and PHP evaluates the file and places the result into the
+   <span class="variable-name">page_content</span> variable in the
+   <a href="templates#primary-template">primary template</a>.</p>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>
@@ -90,7 +93,41 @@
 
 <h3 id="secondary-content">Secondary Content</h3>
 <p>Secondary content files are placed in the <span class="filename">secondarycontent</span>
-   sub-directory.</p>
+   sub-directory. Secondary content files are generally used for two-column layouts (or
+   three-column if sub-navigation is available on a page). WalkerCMS first determines if
+   there is a secondary content file available
+   (<span class="variable-name">has_secondary_content</span> variable for the
+   <a href="templates#primary-template">primary template</a>). If there is a file, then
+   WalkerCMS includes the file, whose evaluated content will be available in the
+   <span class="variable-name">secondary_content</span> in the primary template.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value
+           &quot;<span class="code">secondarycontent</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3 id="primary-nav">Custom Primary Navigation</h3>
@@ -101,19 +138,128 @@
 <h3 id="sub-nav">Custom Sub-Navigation</h3>
 <p>Custom sub-navigation files are placed in the <span class="filename">subnav</span>
    sub-directory.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value &quot;<span class="code">subnav</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3 id="html-headers">Custom HTML Headers</h3>
 <p>Custom HTML header files are placed in the <span class="filename">htmlheaders</span>
    sub-directory.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value
+           &quot;<span class="code">htmlheaders</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3 id="page-headers">Custom Page Header</h3>
+<h3 id="page-headers">Custom Page Headers</h3>
 <p>Custom page header files are placed in the <span class="filename">headers</span>
    sub-directory.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value &quot;<span class="code">headers</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3 id="page-footers">Custom Footers</h3>
 <p>Custom footer files are placed in the <span class="filename">footers</span>
    sub-directory.</p>
+<p>Following is a table of variables that are available for inclusion or logic processing in
+   a given primary content file. Note that you may also use any other valid PHP.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Data&nbsp;Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="variable-name">inclusion_type</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Will always contain the value &quot;<span class="code">footers</span>&quot;</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">page_id</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the currently requested page ID.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
