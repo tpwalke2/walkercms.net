@@ -2,7 +2,7 @@
 <ul>
   <li><a href="#overview" title="Extra Features Overview">Overview</a></li>
   <li><a href="#contact-form" title="WalkerCMS Contact Form feature">Contact Form</a></li>
-  <li><a href="#ie-warning" title="Internet Explorer warning">Internet Explorer Warning</a></li>
+  <li><a href="#ie-warning" title="Internet Explorer&reg; warning">Internet Explorer&reg; Warning</a></li>
 </ul>
 
 <h3><a name="overview"></a>Overview</h3>
@@ -15,6 +15,10 @@
 <p></p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="ie-warning"></a>Internet Explorer Warning</h3>
+<h3><a name="ie-warning"></a>Internet Explorer&reg; Warning</h3>
 <p></p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<p>Microsoft&reg; and Internet Explorer&reg; are registered trademarks of the
+   Microsoft&reg; group of companies. Their reference here does not imply any endorsement
+   by Microsoft&reg; of WalkerCMS, nor endorsement of Microsoft&reg; by WalkerCMS.</p>
