@@ -131,14 +131,16 @@
       <td class="setting-name">maximum_unsupported_ie_version</td>
       <td class="data-type">string</td>
       <td class="setting-desc">
-        <p>The maximum version of Internet Explorer that you do not support. This setting works in
-           conjunction with the <span class="setting-name">show_ie_warning</span> below.</p>
-        <p>The default value is &quot;7&quot; indicating that IE7 and below is not supported.</p>
+        <p>The maximum version of Internet Explorer&reg; that you do not support. This
+           setting works in conjunction with the
+           <span class="setting-name">show_ie_warning</span> below.</p>
+        <p>The default value is &quot;7&quot; indicating that IE7&reg; and below is not
+           supported.</p>
         <p>This otherwise optional field is required to be configured if the
            <span class="setting-name">show_ie_warning</span> is set to true.</p>
         <p>See also:</p>
         <ul>
-          <li><a href="extrafeatures#ie-warning" title="Internet Explorer Warning">IE Warning</a></li>
+          <li><a href="extrafeatures#ie-warning" title="Internet Explorer&reg; Warning">Internet Explorer&reg; Warning</a></li>
         </ul>
       </td>
     </tr>
@@ -184,13 +186,14 @@
       <td class="setting-name">show_ie_warning</td>
       <td class="data-type">boolean</td>
       <td class="setting-desc">
-        <p>Flag indicating whether to show a warning to Internet Explorer users. This setting works in
-           conjunction with the <span class="setting-name">maximum_unsupported_ie_version</span> to
-           determine whether the warning actually gets displayed.</p>
+        <p>Flag indicating whether to show a warning to Internet Explorer&reg; users. This
+           setting works in conjunction with the
+           <span class="setting-name">maximum_unsupported_ie_version</span> to determine
+           whether the warning actually gets displayed.</p>
         <p>The default is &quot;true&quot;.</p>
         <p>See also:</p>
         <ul>
-          <li><a href="extrafeatures#ie-warning" title="Internet Explorer Warning">IE Warning</a></li>
+          <li><a href="extrafeatures#ie-warning" title="Internet Explorer&reg; Warning">Internet Explorer&reg; Warning</a></li>
         </ul>
       </td>
     </tr>
@@ -424,3 +427,7 @@ $pages['home'] = array('page_title' => 'Home');</pre>
    each page configuration, so the <span class="page-id">home</span> page will have a
    <span class="setting-name">show_in_nav</span> value of <span class="code">true</span>.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<p>Microsoft&reg; and Internet Explorer&reg; are registered trademarks of the
+   Microsoft&reg; group of companies. Their reference here does not imply any endorsement
+   by Microsoft&reg; of WalkerCMS, nor endorsement of Microsoft&reg; by WalkerCMS.</p>
