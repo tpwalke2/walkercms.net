@@ -1,7 +1,7 @@
-<a name="top"></a>
+<a id="top"></a>
 <div id="wrap">
  <div id="header">
-  <a href="https://github.com/tpwalke2/WalkerCMS" class="github-link" title="Fork me on GitHub"><img src="../images/github_forkme.png" alt="Fork me on GitHub"></a>
+  <a href="https://github.com/tpwalke2/WalkerCMS" class="github-link" title="Fork me on GitHub"><img src="../images/github_forkme.png" alt="Fork me on GitHub" /></a>
   <h1 id="logo-text"><a href="home" title=""><?= $organization_name ?></a></h1>
   <h2 id="slogan"><?= $organization_slogan ?></h2>
   
@@ -44,7 +44,7 @@
       <a href="http://www.bluewebtemplates.com/" title="Website Templates" target="_blank">website templates</a> by <a href="http://www.styleshout.com/" title="styleshout templates" target="_blank">styleshout</a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="home">Home</a> |
-            <a href="http://validator.w3.org/check?uri=referer" title="Valid XHML" target="_blank">XHTML</a> |
+            <a href="http://validator.w3.org/check?uri=referer" title="Valid HTML" target="_blank">HTML</a> |
       <a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS" target="_blank">CSS</a>
      </p>
      <?php if ($has_page_specific_footer): ?>
@@ -53,3 +53,14 @@
    </div>
  </div></div>
 </div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38341116-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>

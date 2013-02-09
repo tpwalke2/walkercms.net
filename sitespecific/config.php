@@ -6,16 +6,18 @@
   $walkercms_config['description'] = 'WalkerCMS is a file-based content-management system (CMS) that is suited primarily for small websites.';
   $walkercms_config['keywords'] = 'content management system walkercms cms php laravel';
   $walkercms_config['contact_page']  = '';
+  $walkercms_config['admin_email'] = 'tpwalke2@gmail.com';
+  $walkercms_config['admin_name']  = 'Tom Walker';
   $walkercms_config['contact_email'] = 'tpwalke2@gmail.com';
   $walkercms_config['contact_name']  = 'Tom Walker';
 
-  $pageDefaults['perform_caching'] = false;
-  $pageDefaults['show_in_nav'] = true;
+  $page_defaults['perform_caching'] = false;
+  $page_defaults['show_in_nav'] = true;
 
   $pages['home']          = array('menu_title' => 'Home');
   $pages['about']         = array('page_title' => 'About');
-  $pages['docs']          = array('page_title' => 'Docs', 'sub_nav_on_page' => true);
-  $pages['overview']      = array('menu_title' => 'Overview', 'page_title' => 'WalkerCMS Documentation', 'parent' => 'docs');
+  $pages['docs']          = array('menu_title' => 'Docs', 'page_title' => 'Documentation', 'sub_nav_on_page' => true);
+  $pages['docsoverview']  = array('menu_title' => 'Overview', 'page_title' => 'Documentation', 'parent' => 'docs');
   $pages['changelog']     = array('page_title' => 'Change Log', 'parent' => 'docs');
   $pages['install']       = array('page_title' => 'Installation', 'parent' => 'docs');
   $pages['templates']     = array('page_title' => 'Templates', 'parent' => 'docs');
@@ -24,6 +26,7 @@
   $pages['extrafeatures'] = array('page_title' => 'Extra Features', 'parent' => 'docs');
   $pages['testing']       = array('page_title' => 'UI Testing', 'parent' => 'docs');
   $pages['community']     = array('page_title' => 'Community', 'sub_nav_on_page' => true);
+  $pages['commoverview']  = array('menu_title' => 'Overview', 'page_title' => 'Community', 'parent' => 'community');
   $pages['contributing']  = array('page_title' => 'Contributing', 'parent' => 'community');
   $pages['styleguide']    = array('page_title' => 'Code Style', 'parent' => 'community');
   $pages['download']      = array('page_title' => 'Download', 'override_url' => 'https://github.com/tpwalke2/walkercms/zipball/master');
