@@ -12,13 +12,65 @@
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="contact-form"></a>Contact Form</h3>
-<p></p>
+<p>WalkerCMS provides a basic contact form that allows users to submit questions or begin
+   conversations with the website owner. The form submits data to a PHP script on the
+   server that then proceses it and sends an email to the site owner and website admin.</p>
+<p>After your website is set up, there are two steps to enabling the contact form:
+   configuration and placement (explained in detail further below).</p>
+<p>
+  There are a few features wrapped into the contact form with which you should be familiar.
+</p>
+<ul>
+  <li>Client-side validation of name, email, and message<sup>*</sup></li>
+  <li>Server-side fallback validation of name, email, and message</li>
+  <li>Client-side spam prevention<sup>*</sup></li>
+  <li>Server-side fallback spam validation</li>
+  <li>AJAX form submission and results display (no page refresh)<sup>*</sup></li>
+  <li>Server-side fallback to form processing</li>
+</ul>
+<p>* - requires scripting to be enabled on the users computer.</p>
+<h4 id="contact-form-configuration">Configuration</h4>
+<p>Configuring the contact form requires setting a few different settings in the
+   site configuration file:</p>
+<ul class="setting-name">
+  <li>admin_email</li>
+  <li>admin_name</li>
+  <li>contact_email</li>
+  <li>contact_name</li>
+  <li>contact_page</li>
+</ul>
+<p>See <a href="#site-config" title="Site Configuration">Site Configuration</a> for more
+   details.</p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h4 id="contact-form-placement">Placement</h4>
+<p>After you configure the contact form, you must specify where the contact form will go
+   in your overall layout. You do this by adding the following snippet to the content file
+   for the page ID you specified as the <span class="setting-name">contact_page</span>
+   in the site configuration setting:</p>
+<code>&lt;?php $contact_form ?&gt;</code>
+<p>This will not only indicate the placement of the form, but also the placement of the
+   submission results - success, failure, or validation error.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3><a name="ie-warning"></a>Internet Explorer&reg; Warning</h3>
-<p></p>
+<p>Most users do not upgrade the web browser that comes with their computer. As such, there
+   are a number of users out there with IE7 or earlier. This feature allows you to configure
+   a message to be displayed to those users to encourage them to upgrade their browser. There
+   are two settings for configuring this feature:</p>
+<ul class="setting-name">
+  <li>maximum_unsupported_ie_version</li>
+  <li>show_ie_warning</li>
+</ul>
+<p>This feature is on by default and set to show warnings for versions 7 and below. You
+   can read more about why this feature is necessary for
+   <a href="http://www.ie6nomore.com/" title="No more IE6" target="_blank">IE6</a> and
+   <a href="http://theie7countdown.com/" title="No more IE7" target="_blank">IE7</a>.</p>
+<p>The presence of this feature does not imply a dislike towards Internet Explorer&reg; in
+   general. It is just that IE6 and IE7 have been the cause of numerous headaches when
+   attempting to use more advanced styling and scripting.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <p>Microsoft&reg; and Internet Explorer&reg; are registered trademarks of the
    Microsoft&reg; group of companies. Their reference here does not imply any endorsement
-   by Microsoft&reg; of WalkerCMS, nor endorsement of Microsoft&reg; by WalkerCMS.</p>
+   by Microsoft&reg; of WalkerCMS, nor endorsement by WalkerCMS of Microsoft&reg;.</p>
