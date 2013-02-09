@@ -95,7 +95,7 @@ img.float-left {
   	margin: 5px 10px 10px 0px;
 }
 
-code {
+code, pre.code {
   	margin: 5px 0;
   	padding: 15px;
   	text-align: left;
@@ -106,7 +106,8 @@ code {
   	border: 1px solid #deedae; 
 	background: #F0FFD2; 
 }
-acronym {
+
+abbr, acronym {
   cursor: help;
   border-bottom: 1px dotted #895F30;
 }
@@ -545,7 +546,7 @@ a.github-link img
   z-index: 100;
 }
 
-.page-id, .variable-name, .setting-name, .data-type, .markup-tag, .filename, .code
+.page-id, .variable-name, .setting-name, .data-type, .markup-tag, .filename, span.code
 {
   font-family: "Courier New", Courier, monospace;
 }

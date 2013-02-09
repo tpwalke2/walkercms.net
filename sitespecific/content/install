@@ -5,7 +5,7 @@
   <li><a href="#postintall" title="After Installation">After Installation</a></li>
 </ul>
 
-<h3><a name="requirements"></a>Requirements</h3>
+<h3 id="requirements">Requirements</h3>
 <p>In addition to the following software, this documentation assumes a familiarity of HTML, Javascript,
    PHP, Apache, and your OS (both development and production).</p>
 <ul>
@@ -20,16 +20,16 @@
     extension for PHP.
   </li>
 </ul>
-<p>Additionally, a <acronym title="user interface">UI</acronym> testing engine is provided and requires
+<p>Additionally, a <abbr title="user interface">UI</abbr> testing engine is provided and requires
    the following:</p>
 <ul>
-  <li><a hrev="http://www.microsoft.com/visualstudio/eng/visual-studio-update" title="Visual Studio">Visual Studio 2010</a> or later (Express Editions will work just fine)</li>
+  <li><a href="http://www.microsoft.com/visualstudio/eng/visual-studio-update" title="Visual Studio">Visual Studio 2010</a> or later (Express Editions will work just fine)</li>
   <li><a href="http://www.nunit.org/" title="NUnit">NUnit</a></li>
   <li><a href="http://seleniumhq.org/" title="Selenium">Selenium</a> with WebDriver</li>
 </ul>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="installation"></a>Installation</h3>
+<h3 id="installation">Installation</h3>
 <ol>
   <li><a href="https://github.com/tpwalke2/walkercms/zipball/master" title="WalkerCMS source">Download WalkerCMS</a>.</li>
   <li>Extract the archive to a directory accessible to your webserver.</li>
@@ -39,7 +39,7 @@
 <h4>From scratch</h4>
 <ol>
   <li>Create a directory that is a sibling to the directory where you extracted WalkerCMS.</li>
-  <li>Copy the contents of <root path of WalkerCMS>/WalkerCMS/defaults to the directory you just created.</li>
+  <li>Copy the contents of &lt;root path of WalkerCMS&gt;/WalkerCMS/defaults to the directory you just created.</li>
   <li>Create a &quot;storage&quot; subdirectory in the directory you created in step 1.</li>
 </ol>
 <h4>Modify WalkerCMS.net</h4>
@@ -47,9 +47,9 @@
   <li><a href="https://github.com/tpwalke2/walkercms.net/zipball/master" title="WalkerCMS.net source">Download WalkerCMS.net</a> (this website).</li>
   <li>Extract the archive to a directory that is a sibling to the WalkerCMS directory.</li>
 </ol>
-<h4><a name="directory-structure"></a>Directory Structure</h4>
+<h4 id="directory-structure">Directory Structure</h4>
 <p>Ensure that the final directory structure for either of the above options is as follows:</p>
-<code><pre>
+<pre class="code">
 /root/
    |-> WalkerCMS/
    |       |-> laravel/
@@ -75,11 +75,11 @@
                  |-> cache/
                  |-> logs/
                  |-> views/
-</pre></code>
+</pre>
 <p>Directories marked with ** are optional.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="postintall"></a>After Installation</h3>
+<h3 id="postintall">After Installation</h3>
 <p>Now the directories are set up correctly, but there is still some work to do. Check out the
    following sections for more details:</p>
 <ul>

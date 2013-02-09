@@ -233,12 +233,10 @@
    <span class="page-id">500</span>. Note that these pages correspond to common HTTP error
    codes. Be sure that you do not redefine the <span class="variable-name">$pages</span>
    variable.</p>
-<code>
-<pre>
+<pre class="code">
 $pages = array('home' => array('menu_title' => 'Home')); // BAD!
 
 $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
-</code>
 <p>The key/index for a single configuration in the <span class="variable-name">$pages</span>
    serves as the page ID. The page ID may only contain lower- or upper-case non-accented
    ASCII letters, number, '_' and '.' (/^[a-zA-Z0-9_\.]+$/).</p>
@@ -289,7 +287,7 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
    is empty) and that have the <span class="setting-name">show_in_nav</span>
    setting set to true will appear in the primary navigation.</p>
 
-<h4><a name="sub-nav-filter"></a>Page Sub-Navigation Filter</h4>
+<h4 id="sub-nav-filter">Page Sub-Navigation Filter</h4>
 <p>If the currently requested page is not a child page and has the
    <span class="setting-name">sub_nav_on_page</span> setting set to true, then all of the
    pages that are its children will appear in the sub-navigation. Additionally, if the
@@ -415,12 +413,10 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
   <li><span class="data-type">boolean</span> values are initialized to <span class="code">false</span></li>
 </ul>
 <h4>Example</h4>
-<code>
-  <pre>
+<pre class="code">
 $page_defaults['show_in_nav'] = true;
     
 $pages['home'] = array('page_title' => 'Home');</pre>
-</code>
 <p>This will set the default value for the <span class="setting-name">show_in_nav</span> to true.
    Additionally, notice that the <span class="page-id">home</span> is not configured with the
    <span class="setting-name">show_in_nav</span> setting. WalkerCMS merges the page defaults with

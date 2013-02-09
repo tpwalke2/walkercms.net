@@ -5,13 +5,13 @@
   <li><a href="#ie-warning" title="Internet Explorer&reg; warning">Internet Explorer&reg; Warning</a></li>
 </ul>
 
-<h3><a name="overview"></a>Overview</h3>
+<h3 id="overview">Overview</h3>
 <p>WalkerCMS provides additional features outside of its primary purpose of page
    generation. Other parts of the documentation may refer to these features, but the idea
    here is to explain the purpose and usage of each one.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="contact-form"></a>Contact Form</h3>
+<h3 id="contact-form">Contact Form</h3>
 <p>WalkerCMS provides a basic contact form that allows users to submit questions or begin
    conversations with the website owner. The form submits data to a PHP script on the
    server that then proceses it and sends an email to the site owner and website admin.</p>
@@ -53,7 +53,7 @@
    submission results - success, failure, or validation error.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
-<h3><a name="ie-warning"></a>Internet Explorer&reg; Warning</h3>
+<h3 id="ie-warning">Internet Explorer&reg; Warning</h3>
 <p>Most users do not upgrade the web browser that comes with their computer. As such, there
    are a number of users out there with IE7 or earlier. This feature allows you to configure
    a message to be displayed to those users to encourage them to upgrade their browser. There
