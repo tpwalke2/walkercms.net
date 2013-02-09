@@ -12,14 +12,16 @@
   </li>
   <li><a href="#sub-nav">Custom Sub-Navigation</a></li>
   <li><a href="#html-headers">Custom HTML Headers</a></li>
-  <li><a href="#page-headers">Custom Page Header</a></li>
+  <li><a href="#page-headers">Custom Page Headers</a></li>
   <li><a href="#page-footers">Custom Footers</a></li>
+  <li><a href="#page-stylesheet">Custom Stylesheets</a></li>
+  <li><a href="#page-javascript">Custom Javascript</a></li>
 </ul>
 
 <h3 id="overview">Overview</h3>
 <p>There are a number of times (extension points) during page generation that WalkerCMS
-   checks for and includes custom content. Each of those extension points corresponds to a
-   sub-directory within the site-specific directory (See
+   checks for and includes custom content. Each of extension point, unless otherwise noted,
+   corresponds to a sub-directory within the site-specific directory (See
    <a href="install#directory-structure">Directory Structure</a>). Creating content in
    WalkerCMS is as simple as saving text files into these sub-directories.</p>
 <p>There are general characteristics that are shared by all of the directories. The files
@@ -258,7 +260,15 @@
 
 <h3 id="page-headers">Custom Page Headers</h3>
 <p>Custom page header files are placed in the <span class="filename">headers</span>
-   sub-directory.</p>
+   sub-directory. Generally a template will have a standard header that appears at the top
+   of each page. Custom header files offer an additional extension point for changing the
+   header.</p>
+<p>WalkerCMS does not automatically determine where the custom page header will appear, that
+   is up to you as the template designer. Instead, if there is a custom header file
+   available for the currently requested page ID, WalkerCMS will populate the
+   <span class="variable-name">has_page_specific_header</span> and the
+   <span class="variable-name">page_specific_header</span> variables appropriately in
+   the <a href="templates#primary-template">primary template</a>.</p>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>
@@ -290,7 +300,15 @@
 
 <h3 id="page-footers">Custom Footers</h3>
 <p>Custom footer files are placed in the <span class="filename">footers</span>
-   sub-directory.</p>
+   sub-directory.Generally a template will have a standard footer that appears at the bottom
+   of each page. Custom footer files offer an additional extension point for changing the
+   footer.</p>
+<p>WalkerCMS does not automatically determine where the custom footer will appear, that
+   is up to you as the template designer. Instead, if there is a custom footer file
+   available for the currently requested page ID, WalkerCMS will populate the
+   <span class="variable-name">has_page_specific_footer</span> and the
+   <span class="variable-name">page_specific_footer</span> variables appropriately in
+   the <a href="templates#primary-template">primary template</a>.</p>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>
@@ -318,4 +336,41 @@
     </tr>
   </tbody>
 </table>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3 id="page-stylesheet">Custom Stylesheets</h3>
+<p>Unlike most of the other extension points, custom stylesheets are placed within the
+   <span class="filename">public/styles</span> (See
+   <a href="install#directory-structure">Directory Structure</a>). The stylehseet must be
+   CSS and have a <span class="filename">.css</span> extension. It must also have a name
+   that directly corresponds to the page ID for which it will be included. For example,
+   the page you are reading has a page ID of <span class="page-id"><?= $page_id ?></span>
+   and would have a custom stylesheet named
+   <span class="filename"><?= $page_id ?>.css</span>, if the file happened to be present.</p>
+<p>If WalkerCMS detects a custom stylesheet file available, then it will set the
+   <span class="variable-name">has_page_specific_stylesheet</span> in the
+   <a href="templates#primary-template">primary template</a> to true and generate a link
+   to the stylesheet in the HTML header. WalkerCMS places the link after the
+   <a href="#html-headers">page-specific HTML header</a>, but before the
+   <a href="#page-javascript">page-specific javascript</a> reference.</p>
+<p>As WalkerCMS generates an HTML link reference to this file, there are no variables
+   available for this extension point.</p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+   
+<h3 id="page-javascript">Custom Javascript</h3>
+<p>Unlike most of the other extension points, custom javascript files are placed within the
+   <span class="filename">public/scripts</span> (See
+   <a href="install#directory-structure">Directory Structure</a>). The script must be
+   javascript and have a <span class="filename">.js</span> extension. It must also have a
+   name that directly corresponds to the page ID for which it will be included. For example,
+   the page you are reading has a page ID of <span class="page-id"><?= $page_id ?></span>
+   and would have a custom javascript named
+   <span class="filename"><?= $page_id ?>.js</span>, if the file happened to be present.</p>
+<p>If WalkerCMS detects a custom javascript file available, then it will set the
+   <span class="variable-name">has_page_specific_javascripts</span> in the
+   <a href="templates#primary-template">primary template</a> to true and generate a script
+   reference to the javascript in the HTML header. WalkerCMS places the sript reference,
+   after the <a href="#page-stylesheet">page-specific javascript</a>.
+<p>As WalkerCMS generates an HTML link reference to this file, there are no variables
+   available for this extension point.</p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
