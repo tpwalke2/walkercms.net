@@ -29,6 +29,6 @@
   $pages['commoverview']  = array('menu_title' => 'Overview', 'page_title' => 'Community', 'parent' => 'community');
   $pages['contributing']  = array('page_title' => 'Contributing', 'parent' => 'community');
   $pages['styleguide']    = array('page_title' => 'Code Style', 'parent' => 'community');
-  $pages['download']      = array('page_title' => 'Download', 'override_url' => 'https://github.com/tpwalke2/walkercms/zipball/master');
+  $pages['download']      = array('menu_title' => 'Download', 'page_title' => 'Download version 0.5 (stable)', 'override_url' => 'https://github.com/tpwalke2/WalkerCMS/archive/0.5.tar.gz');
   
 /* End of file config.php */
