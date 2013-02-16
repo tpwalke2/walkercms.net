@@ -1,13 +1,18 @@
 <h2>Templates</h2>
 <ul>
-  <li><a href="#overview" title="Templates Overview">Overview</a></li>
-  <li><a href="#primary-template" title="Primary template">Primary Template</a></li>
-  <li><a href="#nav-template" title="Navigation template">Navigation Template</a></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#layout-template">Layout Template</a></li>
+  <li><a href="#primary-template">Primary Template</a></li>
+  <li><a href="#nav-template">Navigation Template</a></li>
 </ul>
 
 <h3 id="overview">Overview</h3>
 <p>All templates reside in the /sitespecific/templates directory. The sections below provide more
    detail as to the purpose, usage, and data available in each type of template.</p>
+<p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
+
+<h3 id="layout-template">Layout Template</h3>
+<p></p>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
 <h3 id="primary-template">Primary Template</h3>
@@ -131,6 +136,18 @@
       <td class="data-type">boolean</td>
       <td class="variable-desc">
         <p>Indicates whether the requested page has secondary content.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">has_site_specific_html_header</td>
+      <td class="data-type">boolean</td>
+      <td class="variable-desc">
+        <p>Indicates whether the site has a custom inclusion for the
+        <span class="markup-tag">&lt;head&gt;</span> section.</p>
         <p>See also:</p>
         <ul>
           <li><a href="content" title="Creating Content">Creating Content</a></li>
@@ -343,6 +360,19 @@
         <p>See also:</p>
         <ul>
           <li><a href="config" title="Configuring WalkerCMS">Configuration</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="variable-name">site_specific_html_header</td>
+      <td class="data-type">string</td>
+      <td class="variable-desc">
+        <p>Contains the specific content to include in the
+        <span class="markup-tag">&lt;head&gt;</span> section if it is available for the
+        site.</p>
+        <p>See also:</p>
+        <ul>
+          <li><a href="content" title="Creating Content">Creating Content</a></li>
         </ul>
       </td>
     </tr>
