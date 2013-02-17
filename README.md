@@ -3,4 +3,5 @@ walkercms.net
 
 The walkercms.net website
 
-This is the development branch
+The master branch - main release channel - lives at http://www.walkercms.net/
+The development branch - nightly channel - lives at http://dev.walkercms.net/
