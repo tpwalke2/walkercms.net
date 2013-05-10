@@ -10,6 +10,7 @@
   <li>Cache fully rendered pages (<a href="https://github.com/tpwalke2/WalkerCMS/issues/27">#27</a>)</li>
   <li>Logging controlled on a per-site basis (<a href="https://github.com/tpwalke2/WalkerCMS/issues/33">#33</a>)</li>
   <li>Site-wide custom HTML header (<a href="https://github.com/tpwalke2/WalkerCMS/issues/34">#34</a>)</li>
+  <li>Override the default template (<a href="https://github.com/tpwalke2/WalkerCMS/issues/39">#39</a>)</li>
 </ul>
 <p class="back-to-top"><a href="#top" title="Back to top">Back to top</a></p>
 
