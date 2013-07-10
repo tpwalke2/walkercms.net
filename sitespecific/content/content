@@ -11,7 +11,14 @@
     </ul>
   </li>
   <li><a href="#sub-nav">Custom Sub-Navigation</a></li>
-  <li><a href="#html-headers">Custom HTML Headers</a></li>
+  <li>
+    <a href="#html-headers">Custom HTML Headers</a>
+    <ul>
+      <li><a href="#site-header">Site-wide Header</a></li>
+      <li><a href="#page-headers">Page-specific Headers</a></li>
+      <li><a href="#html-header-variables">Variables</a></li>
+    </ul>
+  </li>
   <li><a href="#page-headers">Custom Page Headers</a></li>
   <li><a href="#page-footers">Custom Footers</a></li>
   <li><a href="#page-stylesheet">Custom Stylesheets</a></li>
@@ -221,13 +228,40 @@
 
 <h3 id="html-headers">Custom HTML Headers</h3>
 <p>Custom HTML header files are placed in the <span class="filename">htmlheaders</span>
-   sub-directory. These files are included in the HTML header section that WalkerCMS
-   automatically generates. The content is included after WalkerCMS generates the default
-   stylesheet and script references, but before the page specific stylesheets and script
-   references. If there is a page-specific HTML header, then WalkerCMS will set the values
-   of the <span class="variable-name">has_page_specific_html_header</span> and
+   sub-directory. WalkerCMS includes these files automatically in the default HTML header
+   section that it generates. There are two types of custom HTML headers: site-wide and
+   page-specific.</p>
+<h4 id="#site-header">Site-wide Header</h4>
+<p>The site-wide header extension point allows a website admin to add content into the
+   HTML header that is necessary for the whole website, but is not included by WalkerCMS.
+   For example, suppose the website requires a specific jQuery plugin. The website admin
+   would add a reference to the jQuery plugin in the site-wide header.</p>
+<p>As with all other custom html header content files, the site-wide header is located in
+   the <span class="filename">htmlheaders</span> and must have a name of
+   <span class="filename">site</span>. In the default HTML header template that WalkerCMS
+   generates, the site-wide HTML header is included after the default scripts and
+   stylesheets, but before the page-specific HTML headers. This placement gives you the
+   option to overwrite the default scripts or stylesheets. For example, if the site needs an
+   older version of jQuery, you can use the site-wide HTML header to include it.</p>
+<p>If there is a site-wide HTML header, then WalkerCMS will set the values of the
+   <span class="variable-name">has_site_specific_html_header</span> and
+   <span class="variable-name">site_specific_html_header</span> variables appropriately in
+   the <a href="templates#primary-template">primary template</a> and the
+   <a href="templates#layout-template">layout template</a>.</p>
+<h4 id="#page-headers">Page-specific Headers</h4>
+<p>The page-specific header extension point allows a website admin to add content into the
+   HTML header section for a specifically requested page ID. To include custom HTML header
+   content for a given page, create a file with the same name as the requested page ID. For
+   example, the custom HTML header header for this page would be
+   <span class="filename">htmlheaders/content</span>.</p>
+<p>The content is included after WalkerCMS includes any potential site-wide HTML header
+   content, but before the page specific stylesheets and script references. If there is a
+   page-specific HTML header, then WalkerCMS will set the values of the
+   <span class="variable-name">has_page_specific_html_header</span> and
    <span class="variable-name">page_specific_html_header</span> variables appropriately in
-   the <a href="templates#primary-template">primary template</a>.</p>
+   the <a href="templates#primary-template">primary template</a> and the
+   <a href="templates#layout-template">layout template</a>.</p>
+<h4 id="html-header-variables">Variables</h4>
 <p>Following is a table of variables that are available for inclusion or logic processing in
    a given primary content file. Note that you may also use any other valid PHP.</p>
 <table>
@@ -251,7 +285,8 @@
       <td class="variable-name">page_id</td>
       <td class="data-type">string</td>
       <td class="variable-desc">
-        <p>Contains the currently requested page ID.</p>
+        <p>Always set to <span class="code">site</span> for the site-wide HTML header</p>
+        <p>Contains the currently requested page ID for page-specific HTML headers.</p>
       </td>
     </tr>
   </tbody>
