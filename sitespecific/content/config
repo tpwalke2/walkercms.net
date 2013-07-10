@@ -240,6 +240,8 @@ $pages['home'] = array('menu_title' => 'Home');  // Good!</pre>
 <p>The key/index for a single configuration in the <span class="variable-name">$pages</span>
    serves as the page ID. The page ID may only contain lower- or upper-case non-accented
    ASCII letters, number, '_' and '.' (/^[a-zA-Z0-9_\.]+$/).</p>
+<p>Note that the page ID <span class="page-id">site</span> is a reserved ID. WalkerCMS will
+   generate an error if you define a page with a reserved ID.</p>
 <h4 id="page-id-validation">Page ID Validation</h4>
 <p>The page ID is initially given as part of the URL. Because it is user submitted data,
    it is best to treat it with a certain level of suspicion. WalkerCMS validates a requested
